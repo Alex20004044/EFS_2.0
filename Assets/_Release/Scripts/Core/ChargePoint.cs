@@ -18,7 +18,7 @@ namespace EFS
         private void Awake()
         {
             onChargeChanged.Invoke();
-            Messenger.Broadcast(GameEvents.I_CHARGE_UPDATED);
+            Messenger.Broadcast(GameEvents.I_CHARGE_UPDATED, MessengerMode.DONT_REQUIRE_LISTENER);
         }
         public void SetCharge(int value)
         {

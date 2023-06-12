@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,10 +69,36 @@ namespace EFS
             var startPositions = GetLinesStartPositions().Select(x => x.ConvertVector3ToVector2()).ToArray();
             lineStartPositions = new NativeArray<Vector2>(startPositions, Allocator.Persistent);
 
+            //Timing();
+            MainCalculation();
+
+            DrawLines();
+        }
+
+        private void MainCalculation()
+        {
             JobHandle lineJob = CalculateLinesIntensity();
 
             lineJob.Complete();
-            DrawLines();
+        }
+
+        private void Timing()
+        {
+            double totalDuration = 0;
+            int cycles = 100;
+
+            for (int i = 0; i < cycles; i++)
+            {
+                var startTime = System.DateTime.Now;
+                JobHandle lineJob = CalculateLinesIntensity();
+
+                lineJob.Complete();
+                var endTime = System.DateTime.Now;
+                totalDuration += (endTime - startTime).TotalSeconds;
+                Debug.Log($"NumSteps {numSteps}. CalculationTime: {endTime - startTime}. Auto parallel");
+            }
+
+            Debug.Log($"Mean {totalDuration / cycles}");
         }
 
         int GetLinesCount()
@@ -100,7 +127,7 @@ namespace EFS
                 lineField = lineField
             };
 
-            return calculateJob.Schedule(GetLinesCount(), 0);
+            return calculateJob.Schedule(GetLinesCount(), 100000);
         }
 
 
@@ -138,7 +165,7 @@ namespace EFS
             {
                 log += pos[i].ToString();
             }
-            Debug.Log(log);
+            //Debug.Log(log);
         }
 
         [Button]

@@ -10,12 +10,6 @@ namespace EFS
 {
     public class TesterForce : MonoBehaviour
     {
-        [SerializeField]
-        ElectricFieldCalculator electricFieldCalculator;
-
-        [SerializeField]
-        Transform arrow;
-
         ChargePoint[] chargePoints;
 
         bool isActivated;

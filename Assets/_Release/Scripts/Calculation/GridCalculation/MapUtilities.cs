@@ -49,5 +49,23 @@ namespace EFS
 
             return electricVector;
         }
+
+        public static int GetLinePointIndex(int lineIndex, int pointIndex, int numSteps)
+        {
+            return pointIndex + lineIndex * numSteps;
+        }
+
+        public static Vector3 GetElectricForce(Vector3 currentPosition, ChargePoint[] chargePoints)
+        {
+            Vector3 electricForce = new Vector3();
+
+            for (int i = 0; i < chargePoints.Length; i++)
+            {
+                Vector3 delta = currentPosition - chargePoints[i].transform.position;
+                electricForce += chargePoints[i].GetCharge() * delta.normalized / delta.sqrMagnitude;
+            }
+
+            return electricForce;
+        }
     }
 }

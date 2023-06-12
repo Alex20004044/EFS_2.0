@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c660bcedff739744aab2c0d10bbdcbb7, type: 3}
+  m_Name: References
+  m_EditorClassIdentifier: 
+  _bookmarks:
+  - title: GameObject (1) (Time Agent)
+    globalInstanceID: GlobalObjectId_V1-2-555bcfafe9440c445b7ea26fecccaee3-1575936304-0
+    type: MSFD.TimeAgent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    path: /GameObject (1)
+    target: {fileID: 0}
+    isProjectItem: 0
+  _favoriteWindows: []
+  _quickAccessItems:
+  - tooltip: Save
+    expanded: 0
+    settings:
+    - File/Save
+    intSettings: 
+    type: 1
+    visibleRules: 0
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Save.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Hierarchy
+    expanded: 0
+    settings:
+    - UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 1
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Hierarchy2.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Project
+    expanded: 0
+    settings:
+    - UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 1
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Project.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Inspector
+    expanded: 0
+    settings:
+    - UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 1
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Inspector.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Bookmarks
+    expanded: 0
+    settings:
+    - InfinityCode.uContext.Windows.Bookmarks, uContext-Editor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 0
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Star-White.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: View Gallery
+    expanded: 0
+    settings:
+    - InfinityCode.uContext.Windows.ViewGallery, uContext-Editor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 0
+    icon: 1
+    iconScale: 1
+    iconSettings: d_ViewToolOrbit
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Distance Tool
+    expanded: 0
+    settings:
+    - InfinityCode.uContext.Windows.DistanceTool, uContext-Editor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 0
+    icon: 0
+    iconScale: 1
+    iconSettings: Assets\A_MSFD_1.0\Z_ExternalPackages\Plugins\Infinity Code\uContext/Icons/Rule.png
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: 
+    expanded: 1
+    settings: []
+    intSettings: 
+    type: 5
+    visibleRules: 0
+    icon: 1
+    iconScale: 1
+    iconSettings: 
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Edit Items
+    expanded: 0
+    settings:
+    - Project/uContext/Quick Access Bar
+    intSettings: 
+    type: 6
+    visibleRules: 0
+    icon: 1
+    iconScale: 1
+    iconSettings: d_Settings
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  - tooltip: Info
+    expanded: 0
+    settings:
+    - InfinityCode.uContext.Windows.Welcome, uContext-Editor, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    intSettings: 
+    type: 0
+    visibleRules: 0
+    icon: 1
+    iconScale: 1
+    iconSettings: _Help
+    useCustomWindowSize: 0
+    customWindowSize: {x: 400, y: 300}
+  _sceneHistory:
+  - name: SampleScene
+    path: Assets/_Release/Scenes/SampleScene.unity
+  - name: 07 SelectionBox
+    path: Assets/Lean/Touch+/Examples/Selection/07 SelectionBox.unity
+  - name: 04 DragSelect
+    path: Assets/Lean/Touch+/Examples/Selection/04 DragSelect.unity
+  - name: 07 FollowFinger
+    path: Assets/Lean/Touch+/Examples/Follow/07 FollowFinger.unity
+  - name: 01 Chase 3D
+    path: Assets/Lean/Touch+/Examples/Follow/01 Chase 3D.unity
+  - name: 14    Snap
+    path: Assets/Lean/Touch+/Examples/Drag/14    Snap.unity
+  - name: 16    Turn 2D
+    path: Assets/Lean/Touch+/Examples/Drag/16    Turn 2D.unity
+  - name: 15 Pull
+    path: Assets/Lean/Touch+/Examples/Drag/15 Pull.unity
+  - name: 08 DragMove2D
+    path: Assets/Lean/Touch+/Examples/Drag/08 DragMove2D.unity
+  - name: DragMeshDeform
+    path: Assets/Lean/Touch+/Examples/Drag/DragMeshDeform.unity
+  - name: DragMeshColor
+    path: Assets/Lean/Touch+/Examples/Drag/DragMeshColor.unity
+  - name: 19 DragRescale
+    path: Assets/Lean/Touch+/Examples/Drag/19 DragRescale.unity
+  - name: 17 Direction
+    path: Assets/Lean/Touch+/Examples/Drag/17 Direction.unity
+  - name: 07 DragMove1D
+    path: Assets/Lean/Touch+/Examples/Drag/07 DragMove1D.unity
+  - name: 06 DragDoors
+    path: Assets/Lean/Touch+/Examples/Drag/06 DragDoors.unity
+  - name: 05       Step
+    path: Assets/Lean/Touch+/Examples/Drag/05       Step.unity
+  - name: 04 DragTurn1D
+    path: Assets/Lean/Touch+/Examples/Drag/04 DragTurn1D.unity
+  - name: 03       Reset
+    path: Assets/Lean/Touch+/Examples/Drag/03       Reset.unity
+  - name: 02    Turn 2D
+    path: Assets/Lean/Touch+/Examples/Drag/02    Turn 2D.unity

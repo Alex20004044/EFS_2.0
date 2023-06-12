@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12323, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: UI_kit_1
+  m_EditorClassIdentifier: 
+  m_Presets:
+  - m_Name: 
+    m_Color: {r: 0.909804, g: 0.91372555, b: 0.91372555, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.7206835, g: 0.7467814, b: 0.7924528, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.47058827, g: 0.5176471, b: 0.5764706, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.24313727, g: 0.27058825, b: 0.3019608, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.74509805, g: 0.34901962, b: 1, a: 1}
+  - m_Name: 
+    m_Color: {r: 0, g: 0.68235296, b: 0.93725497, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.4901961, g: 0.8379827, b: 1, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.49019608, g: 1, b: 0.63529414, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.8983032, g: 1, b: 0.34699994, a: 1}
+  - m_Name: 
+    m_Color: {r: 1, g: 0.7790474, b: 0.37254906, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.9411765, g: 0.4862745, b: 0, a: 1}
+  - m_Name: 
+    m_Color: {r: 1, g: 0.4901961, b: 0.49411768, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.9811321, g: 0.2906372, b: 0.2959487, a: 1}
+  - m_Name: 
+    m_Color: {r: 1, g: 0.37169808, b: 0.80596554, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.227451, g: 0.7843138, b: 0.15294118, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.91764706, g: 0.86309105, b: 0.02352941, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.9176471, g: 0.023529414, b: 0.054901965, a: 1}

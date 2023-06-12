@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MSFD;
 using MSFD.AS;
+using MSFD.Data;
 using Sirenix.OdinInspector;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
@@ -14,7 +15,7 @@ namespace EFS
     public class LineCalculation : MonoBehaviour
     {
         [SerializeField]
-        float stepDistance = 0.1f;
+        DataField<float> stepDistance = new DataField<float>("Settings/StepDistance");
         [SerializeField]
         int numSteps = 1000;
         [SerializeField]
@@ -32,6 +33,12 @@ namespace EFS
         float lineYOffset = 0.005f;
 
         List<GameObject> lines = new List<GameObject>();
+
+        [Inject]
+        void Init(IDataStreamProvider streamProvider)
+        {
+            stepDistance.SubscribeAndAddTo(streamProvider, this);
+        }
 
         private void OnDestroy()
         {
@@ -82,7 +89,7 @@ namespace EFS
             var calculateJob = new LineCalculateJob()
             {
                 numSteps = numSteps,
-                stepDistance = stepDistance,
+                stepDistance = stepDistance.Value,
 
                 chargePoints = chargeSharedData,
                 lineStartPositions = lineStartPositions,

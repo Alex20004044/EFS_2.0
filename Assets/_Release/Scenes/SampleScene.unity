@@ -822,6 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339993691}
   - component: {fileID: 339993690}
+  - component: {fileID: 339993692}
   m_Layer: 0
   m_Name: LineCalculator
   m_TagString: Untagged
@@ -841,7 +842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7598069d88d2d18458e28f52d9c37d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDistance: 0.1
+  stepDistance:
+    path: Settings/StepDistance
+    value: 0
   numSteps: 200
   linesCountCoeff: 1
   lineRendererPrefab: {fileID: 8936231214866262702, guid: e1d78a53f1a35384c893f7669cbd4815, type: 3}
@@ -861,6 +864,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339993692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339993689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9371324d245af0441a1e3c8b55d2af4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activator:
+    activationMode: 0
 --- !u!1 &345257493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7562508739564541139, guid: 9df5ed8ba81ed0d45b0ba7f3165c6d16, type: 3}
       propertyPath: dataTableDisplayer.displayDataWindow
-      value: 'Settings/IsSnapActive: False (System.Boolean)
+      value: 'Settings/IsSnap: False (System.Boolean)
+
+        Settings/IsCoordInput:
+        False (System.Boolean)
 
 '
       objectReference: {fileID: 0}
@@ -3597,13 +3617,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687744260}
+  - component: {fileID: 1687744261}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687744260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3625,6 +3646,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1687744261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687744259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90507f17a7dc4d419f998d25bcff7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1687744259}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1734303998
 GameObject:
   m_ObjectHideFlags: 0

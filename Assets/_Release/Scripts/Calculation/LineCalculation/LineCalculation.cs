@@ -44,6 +44,9 @@ namespace EFS
             Clean();
 
             chargePoints = FindObjectsOfType<ChargePoint>();
+
+            if (chargePoints.Length == 0)
+                return;
             chargeSharedData = new NativeArray<Vector3>(chargePoints.Length, Allocator.Persistent);
             for (int i = 0; i < chargePoints.Length; i++)
             {

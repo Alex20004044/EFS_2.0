@@ -13,11 +13,19 @@ namespace EFS
         ChargePoint[] chargePoints;
 
         bool isActivated;
-        [Button]
-        private void Activate()
+
+
+        private void Start()
         {
             chargePoints = FindObjectsOfType<ChargePoint>();
             isActivated = true;
+
+            Messenger.Subscribe(GameEvents.I_CHARGE_UPDATED, OnChargeDestroyed);
+        }
+
+        void OnChargeDestroyed()
+        {
+            chargePoints = FindObjectsOfType<ChargePoint>();
         }
 
         void Update()

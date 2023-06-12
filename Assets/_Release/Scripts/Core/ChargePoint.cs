@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MSFD;
 using MSFD.AS;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,7 @@ namespace EFS
         private void Awake()
         {
             onChargeChanged.Invoke();
+            Messenger.Broadcast(GameEvents.I_CHARGE_UPDATED);
         }
         public void SetCharge(int value)
         {
@@ -28,6 +30,10 @@ namespace EFS
             return charge;
         }
 
+        private void OnDestroy()
+        {
+            Messenger.Broadcast(GameEvents.I_CHARGE_UPDATED);
+        }
         public Vector3[] GetLinesStartPositions(int linesCoefficient)
         {
             ChargePoint[] targetChargePoints = FindObjectsOfType<ChargePoint>();

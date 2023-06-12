@@ -1,0 +1,6 @@
+Settings,
+IsSnap,FALSE
+IsCoordInput,FALSE
+ChargeMultiplyCoefficient,1.0
+StepDistance,0.1
+LineWidth,0.2

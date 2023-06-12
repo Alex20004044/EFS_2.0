@@ -8,6 +8,9 @@ namespace MSFD
     [MessengerEventContainer]
     public static class GameEvents
     {
+        public const string I_CHARGE_UPDATED = "I_CHARGE_UPDATED";
+
+
         public const string R_BEGIN_GAME = "R_BEGIN_GAME";
         public const string I_GAME_AWAKED = "I_GAME_AWAKED";
         public const string I_GAME_STARTED = "I_GAME_STARTED";

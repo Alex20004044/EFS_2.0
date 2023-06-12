@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 namespace MSFD.AS
 {
     public static class Coordinates
     {
+        public static Vector2 GetRange(this Slider slider)
+        {
+            return new Vector2(slider.minValue, slider.maxValue);
+        }
+
         public static Pose GetPose(this Transform transform)
         {
             return new Pose(transform.position, transform.rotation);

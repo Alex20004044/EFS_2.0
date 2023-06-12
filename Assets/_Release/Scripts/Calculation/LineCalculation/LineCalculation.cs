@@ -17,9 +17,11 @@ namespace EFS
         [SerializeField]
         DataField<float> stepDistance = new DataField<float>("Settings/StepDistance");
         [SerializeField]
-        int numSteps = 1000;
+        DataField<float> linesCountCoeff = new DataField<float>("Settings/ChargeMultiplyCoefficient");
         [SerializeField]
-        int linesCountCoeff = 1;
+        DataField<float> lineWidth = new DataField<float>("Settings/LineWidth");
+        [SerializeField]
+        int numSteps = 1000;
 
         ChargePoint[] chargePoints;
 
@@ -38,6 +40,8 @@ namespace EFS
         void Init(IDataStreamProvider streamProvider)
         {
             stepDistance.SubscribeAndAddTo(streamProvider, this);
+            linesCountCoeff.SubscribeAndAddTo(streamProvider, this);
+            lineWidth.SubscribeAndAddTo(streamProvider, this);
         }
 
         private void OnDestroy()
@@ -79,7 +83,7 @@ namespace EFS
             IEnumerable<Vector3> result = Enumerable.Empty<Vector3>();
             foreach (var x in chargePoints)
             {
-                result = result.Concat(x.GetLinesStartPositions(linesCountCoeff));
+                result = result.Concat(x.GetLinesStartPositions((int)linesCountCoeff.Value));
             }
             return result.ToArray();
         }
@@ -106,6 +110,7 @@ namespace EFS
             {
                 GameObject line = InstantiateCore.Spawn(lineRendererPrefab.gameObject, Coordinates.ConvertVector2ToVector3(lineStartPositions[i]));
                 LineRenderer lineRenderer = line.GetComponentInChildren<LineRenderer>();
+                lineRenderer.startWidth = lineWidth.Value;
                 lineRenderer.positionCount = numSteps;
                 lineRenderer.SetPositions(LinePositions(i));
 

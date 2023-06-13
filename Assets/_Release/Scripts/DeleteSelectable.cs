@@ -18,7 +18,11 @@ namespace EFS
         {
             GameObject selection = selectableSource.GetSelection();
             if (selection == null) return;
-            InstantiateCore.Despawn(selection);
+            //TODO: Need to implement proper interface
+            if (selection.TryGetComponent<TesterForce>(out var testerForce))
+                testerForce.transform.position = Vector3.zero;
+            else
+                InstantiateCore.Despawn(selection);
         }
 
     }

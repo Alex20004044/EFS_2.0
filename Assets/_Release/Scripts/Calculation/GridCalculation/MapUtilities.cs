@@ -26,29 +26,42 @@ namespace EFS
 
         public static Vector3 CalculateIntesityV3(Vector3 position, ChargePoint[] charges)
         {
+            position = position.SetYAxis(0);
             Vector3 electricVector = new Vector3();
             for (int i = 0; i < charges.Length; i++)
             {
                 Vector3 delta = position - charges[i].transform.position;
                 float rangeSqr = delta.sqrMagnitude;
-                electricVector += delta * charges[i].GetCharge() / rangeSqr;
+
+                if (rangeSqr < SimulationConstants.INFINITY_INTENSITY_TRESHOLD_DISTANCE)
+                {
+                    if (charges[i].GetCharge() > 0)
+                        return Vector3.positiveInfinity.SetYAxis(0);
+                    else if (charges[i].GetCharge() > 0)
+                        return Vector3.negativeInfinity.SetYAxis(0);
+                    else 
+                        continue;
+                }
+                
+
+                electricVector += delta.normalized * charges[i].GetCharge() / rangeSqr;
             }
 
             return electricVector.SetYAxis();
         }
 
-        public static Vector2 CalculateIntesity(Vector2 position, ChargePoint[] charges)
+/*        public static Vector2 CalculateIntesity(Vector2 position, ChargePoint[] charges)
         {
             Vector2 electricVector = new Vector2();
             for (int i = 0; i < charges.Length; i++)
             {
                 Vector2 delta = position - Coordinates.ConvertVector3ToVector2(charges[i].transform.position);
                 float rangeSqr = delta.sqrMagnitude;
-                electricVector += delta * charges[i].GetCharge() / rangeSqr;
+                electricVector += delta.normalized * charges[i].GetCharge() / rangeSqr;
             }
 
             return electricVector;
-        }
+        }*/
 
         public static int GetLinePointIndex(int lineIndex, int pointIndex, int numSteps)
         {

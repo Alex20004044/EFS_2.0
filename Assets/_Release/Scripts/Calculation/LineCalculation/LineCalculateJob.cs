@@ -15,6 +15,8 @@ namespace EFS
         public NativeArray<Vector3> chargePoints;
         [ReadOnly]
         public NativeArray<Vector2> lineStartPositions;
+        [ReadOnly]
+        public NativeArray<bool> isLinesPositive;
         [NativeDisableContainerSafetyRestriction]
         public NativeArray<Vector2> lineField;
         public void Execute(int index)
@@ -25,7 +27,7 @@ namespace EFS
             for (int i = 1; i < numSteps; i++)
             {
                 Vector2 electricDir = GetElectricForce(currentPosition).normalized;
-                currentPosition += electricDir * stepDistance;
+                currentPosition += electricDir * stepDistance * (isLinesPositive[index] ? 1 : -1);
                 lineField[GetLinePointIndex(index, i)] = currentPosition;
             }
         }

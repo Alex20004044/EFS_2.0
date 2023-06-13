@@ -28,6 +28,7 @@ namespace EFS
 
         NativeArray<Vector3> chargeSharedData;
         NativeArray<Vector2> lineStartPositions;
+        NativeArray<bool> isLinesPositive;
         NativeArray<Vector2> lineField;
 
         [SerializeField]
@@ -66,8 +67,10 @@ namespace EFS
             }
 
             lineField = new NativeArray<Vector2>(GetLinesCount() * numSteps, Allocator.Persistent);
-            var startPositions = GetLinesStartPositions().Select(x => x.ConvertVector3ToVector2()).ToArray();
-            lineStartPositions = new NativeArray<Vector2>(startPositions, Allocator.Persistent);
+            var startPositions = GetLinesStartPositions();
+            var startPositionsV2 = startPositions.Select(x => x.position.ConvertVector3ToVector2()).ToArray();
+            lineStartPositions = new NativeArray<Vector2>(startPositionsV2, Allocator.Persistent);
+            isLinesPositive = new NativeArray<bool>(startPositions.Select(x => x.isChargePositive).ToArray(), Allocator.Persistent);
 
             //Timing();
             MainCalculation();
@@ -103,11 +106,11 @@ namespace EFS
 
         int GetLinesCount()
         {
-            return GetLinesStartPositions().Length;
+            return chargePoints.Sum(x => x.GetLinesCount((int)linesCountCoeff.Value));
         }
-        private Vector3[] GetLinesStartPositions()
+        private LineStartPosition[] GetLinesStartPositions()
         {
-            IEnumerable<Vector3> result = Enumerable.Empty<Vector3>();
+            var result = Enumerable.Empty<LineStartPosition>();
             foreach (var x in chargePoints)
             {
                 result = result.Concat(x.GetLinesStartPositions((int)linesCountCoeff.Value));
@@ -124,6 +127,7 @@ namespace EFS
 
                 chargePoints = chargeSharedData,
                 lineStartPositions = lineStartPositions,
+                isLinesPositive = isLinesPositive,
                 lineField = lineField
             };
 
@@ -175,6 +179,7 @@ namespace EFS
             {
                 chargeSharedData.Dispose();
                 lineStartPositions.Dispose();
+                isLinesPositive.Dispose();
                 lineField.Dispose();
             }
 

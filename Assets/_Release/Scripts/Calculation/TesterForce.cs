@@ -4,6 +4,7 @@ using CorD.SparrowInterfaceField;
 using MSFD;
 using MSFD.AS;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace EFS
@@ -39,20 +40,28 @@ namespace EFS
 
         void Update()
         {
-            if (!isActivated) return;
+            if (!isActivated || chargePoints.IsNullOrEmpty())
+            {
+                electricForce = Vector3.zero;
+                return;
+            }
 
-            //int index = MapUtilities.ConvertMeasurePointPositionToIndex(new Vector2(transform.position.x, transform.position.z),
-            //     electricFieldCalculator.GetMapSize(), electricFieldCalculator.GetMeasuresPerUnit());
             electricForce = MapUtilities.CalculateIntesityV3(transform.position, chargePoints);
-            //float angle = Coordinates.AngleFromDirection(electricForce);
-            Quaternion rotation = Quaternion.LookRotation(electricForce, Vector3.up);
 
-            transform.rotation = rotation;
-            if(isSendMessagesToServer)
+            if (float.IsFinite(electricForce.x) && float.IsFinite(electricForce.z) && electricForce.x != 0 && electricForce.z != 0)
+            {
+                Quaternion rotation = Quaternion.LookRotation(electricForce, Vector3.up);
+                transform.rotation = rotation;
+            }
+
+            if (isSendMessagesToServer)
                 server.SendMessageToClient(JsonUtility.ToJson(new ElectricData(electricForce, transform.position)));
         }
 
-        
+        public Vector3 GetForce()
+        {
+            return electricForce;
+        }
     }
     struct ElectricData
     {

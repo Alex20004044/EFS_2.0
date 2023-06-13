@@ -67,7 +67,7 @@ namespace EFS
 
         private void OnEnterTextX(string x)
         {
-            if(float.TryParse(x, NumberStyles.Any, CultureInfo.InvariantCulture, out float coord))
+            if (float.TryParse(x, NumberStyles.Any, CultureInfo.InvariantCulture, out float coord))
                 selectionSource.GetSelection().transform.position = selectionSource.GetSelection().transform.position.SetXAxis(coord);
         }
         private void OnEnterTextY(string x)
@@ -77,8 +77,13 @@ namespace EFS
         }
         private void OnEnterTextCharge(string x)
         {
-            if (int.TryParse(x, NumberStyles.Any, CultureInfo.InvariantCulture, out int charge))
-                selectionSource.GetSelection().GetComponent<ChargePoint>().SetCharge(charge);
+            if (int.TryParse(x, NumberStyles.Any, CultureInfo.InvariantCulture, out int input))
+            {
+                GameObject selectedObject = selectionSource.GetSelection();
+
+                if (selectedObject.TryGetComponent<ChargePoint>(out var chargePoint))
+                    chargePoint.SetCharge(input);
+            }
         }
 
         private void OnSelect()
@@ -104,9 +109,13 @@ namespace EFS
 
             xInputField.text = "X: " + selection.transform.position.x;
             yInputField.text = "Y: " + selection.transform.position.z;
-            chargeInputField.text = "Charge: " + selection.GetComponent<ChargePoint>().GetCharge();
+            ChargePoint chargePoint = selection.GetComponent<ChargePoint>();
+            if (chargePoint != null)
+                chargeInputField.text = "Charge: " + chargePoint.GetCharge();
+            else if(selection.TryGetComponent<TesterForce>(out var testerForce))
+                chargeInputField.text = testerForce.GetForce().magnitude.ToString();
+            else
+                chargeInputField.text = "";
         }
-
-
     }
 }
